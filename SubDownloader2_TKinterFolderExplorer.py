@@ -43,15 +43,15 @@ def download_podnapisi_subtitle(movie_name):
         soup = BeautifulSoup(response.text, 'html.parser')
         
         # Extract the portion of the HTML that might contain the links to subtitles
-        download_link = soup.contents[2]
+        download_link_to_subtitle = soup.contents[2]
         
         # Detects where the First subtitle link appears in the HTML 
-        idx1 = re.search(r'a alt="Download subtitles." data-toggle="tooltip" href=', str(download_link)).end() # index del primer link que aparece en los res
-        download_link = url_base + str(download_link)[idx1 + 2:str(download_link).index(r'" rel="nofollow"',1)] # buscar y picar el string de descarga
+        idx1 = re.search(r'a alt="Download subtitles." data-toggle="tooltip" href=', str(download_link_to_subtitle)).end() # index del primer link que aparece en los res
+        download_link_to_subtitle = url_base + str(download_link_to_subtitle)[idx1 + 2:str(download_link_to_subtitle).index(r'" rel="nofollow"',1)] # buscar y picar el string de descarga
         
         # Having the hard URL of the subtitle (above), downloads its contents (zip file)
         print("  - Downloading the first pseudo-matching source... (highest download rated link)")
-        subtitle_response = requests.get(download_link)
+        subtitle_response = requests.get(download_link_to_subtitle)
         
         # Creates in the path a zip file (bin) with the subtitles within
         with open(movie_path + "/" + movie_name + ".zip", "wb") as subtitle_file: # originally all subtitles must be downloaded as zip files
