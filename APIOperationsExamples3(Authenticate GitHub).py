@@ -4,7 +4,7 @@
 
 # 1 Using the Dog API: 
 import requests
-api_key = 'HPTPWG9mSBOdH45WJybC9LuhnCuXCfCpNlkeB0GOcNYGXSRG5YkfHTNvYlrHNa2M'
+api_key = '<token>'
 headers = {"Content-Type": "application/json","x-api-key": api_key}
 url = f"https://api.thedogapi.com/v1/images/search?size=med&mime_types=jpg&format=json&has_breeds=true&order=RANDOM&page=0&limit=1"
 response = requests.get(url=url, headers=headers).json()
@@ -22,13 +22,13 @@ img.show()
 import requests
 
 base_url = "https://api.github.com/"
-resource_owner = "tronatorex1"
-token = "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"
-access_token = "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"
-header = {'Authorization': 'Bearer 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', 'X-GitHub-Api-Version': '2022-11-28'}
+resource_owner = "<your account here>"
+token = "<token>"
+access_token = "<token>"
+header = {'Authorization': 'Bearer <token>', 'X-GitHub-Api-Version': '2022-11-28'}
 
 # 2.1 Access your user's information only
-username = "tronatorex1" # github username
+username = "<your account here>" # github username
 url = f"{base_url}users/{username}"
 user_data = requests.get(url)
 print(user_data.json())
@@ -37,7 +37,7 @@ print(user_data.json()['bio'])
 # 2.2 Retrieve repos' names
 import requests
 base_url = "https://api.github.com"
-username = "tronatorex1"
+username = "<your account here>"
 url = f"{base_url}/users/{username}/repos"
 response = requests.get(url)
 repositories_data = response.json()
@@ -50,14 +50,14 @@ import requests
 base_url = "https://api.github.com"
 def get_user_repos(username):
     url = f"{base_url}/users/{username}/repos"
-    query_params = {"sort": "updated","per_page": 5}
+    query_params = {"sort": "updated", "per_page": 5}
     response = requests.get(url, params=query_params)
 
     if response.status_code == 200:
         repositories_data = response.json()
         return repositories_data
 
-username = "tronatorex1"
+username = "<your account here>"
 user_repos = get_user_repos(username)
 if user_repos:
     print(f"Repositories of {username}:")
@@ -67,8 +67,8 @@ if user_repos:
 # 3 Create a new repo
 import requests
 base_url = "https://api.github.com"
-access_token = "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"
-repo_name = "tronatorex3"
+access_token = "<github_token>"
+repo_name = "<your repo name here>"
 repo_descr = "New repo created to cluster independent tools for specific purposes. No category assigned here."
 url = f"{base_url}/user/repos"
 headers = {"Authorization": f"token {access_token}",}
@@ -95,9 +95,9 @@ def update_repo_descr(access_token, username, repo_name, new_description):
         updated_repo_data = response.json()
         return updated_repo_data
 
-access_token = "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"
-username = "tronatorex1"
-repo_name = "tronatorex3"
+access_token = "github_<token>"
+username = "<your account here>"
+repo_name = "<your repo name here>"
 new_description = "This is an updated description using PATCH request."
 updated_repo = update_repo_descr(access_token, username, repo_name, new_description)
 if updated_repo:
@@ -122,9 +122,9 @@ def delete_repo(access_token, username, repo_name):
     else:
         print(f"  X Failed to delete repository. Status code: {response.status_code}")
 
-access_token = "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"
-username = "tronatorex1"
-repo_name = "tronatorex2"
+access_token = "github_<token>"
+username = "<your account here>"
+repo_name = "<your repo name here>"
 
 delete_repo(access_token, username, repo_name)
 
