@@ -1,6 +1,6 @@
-#GitHub
+# GitHub
 
-###General GitHub Upload Source
+### General GitHub Upload Source
 
 I have gathered These general Internet sources' codes to centralize examples I can use later on during any development anywhere.
 Some of this information can be retrieved from forums and blogs. I wanted to collect them and place them in an easy-to-access place. 
