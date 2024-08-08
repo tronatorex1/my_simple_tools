@@ -1,4 +1,4 @@
-# This examples use Loguru as an alternative to python's native log framework or solution
+# This example use Loguru as an alternative to python's native log framework or solution
 #    
 
 # base example with all statuses
