@@ -1,0 +1,5 @@
+To create an exec file out of a python program, use either:
+
+a) pyinstaller (pip install pyinstaller) and run: pyinstaller --onefile .\TKinterWithMyIpAndLocation.py
+
+b) auto-py-to-exe (pip install auto-py-to-exe) and run: auto-py-to-exe (it brings up a GUI to create the EXE file) 
